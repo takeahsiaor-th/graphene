@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from itertools import chain
+from graphql import Undefined
 
 from .dynamic import Dynamic
 from .mountedtype import MountedType
@@ -42,7 +43,7 @@ class Argument(MountedType):
     def __init__(
         self,
         type,
-        default_value=None,
+        default_value=Undefined,
         description=None,
         name=None,
         required=False,

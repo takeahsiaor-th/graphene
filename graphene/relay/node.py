@@ -93,6 +93,8 @@ class Node(AbstractNode):
     def get_node_from_global_id(cls, info, global_id, only_type=None):
         try:
             _type, _id = cls.from_global_id(global_id)
+            if not _type:
+                raise ValueError("Invalid Global ID")
             graphene_type = info.schema.get_type(_type).graphene_type
         except Exception:
             return None
